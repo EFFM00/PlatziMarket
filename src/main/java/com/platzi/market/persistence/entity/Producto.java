@@ -120,4 +120,12 @@ public class Producto {
     public void setEstado(Boolean estado) {
         this.estado = estado;
     }
+
+    public Set<ComprasProducto> getCompras() {
+        return compras;
+    }
+
+    public void setCompras(Set<ComprasProducto> compras) {
+        this.compras = compras;
+    }
 }

@@ -2,10 +2,12 @@ package com.platzi.market.persistence;
 
 import com.platzi.market.persistence.crud.ProductoCrudRepository;
 import com.platzi.market.persistence.entity.Producto;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class ProductoRepository {
 
     private ProductoCrudRepository productoCrudRepository;
@@ -45,4 +47,14 @@ public class ProductoRepository {
     public Optional<List<Producto>> findByNombreAndPrecioVentaOrderByPrecioVentaDesc(String nombre, Double precioVenta) {
         return productoCrudRepository.findByNombreAndPrecioVentaOrderByPrecioVentaDesc(nombre, precioVenta);
     }
+
+    /*
+    public Optional<List<Producto>> findByCantidadStockLessThan(Integer stock) {
+        return productoCrudRepository.findByCantidadStockLessThan(stock);
+    }
+
+    public Optional<List<Producto>> findByCantidadStockLessThanAndIdCategoriaOrderByStockDesc(Integer stock, Long idCantidad) {
+        return productoCrudRepository.findByCantidadStockLessThanAndIdCategoriaOrderByStockDesc(stock, idCantidad);
+    }
+     */
 }

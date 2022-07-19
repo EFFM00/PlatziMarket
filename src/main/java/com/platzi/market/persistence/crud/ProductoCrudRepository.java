@@ -21,4 +21,8 @@ public interface ProductoCrudRepository extends CrudRepository<Producto, Long> {
     Optional<List<Producto>> findByNombreAndIdCategoriaOrderByNombreAsc(String nombre, Long idCategoria);
 
     Optional<List<Producto>> findByNombreAndPrecioVentaOrderByPrecioVentaDesc(String nombre, Double precioVenta);
+
+    //Optional<List<Producto>> findByCantidadStockLessThan(Integer stock);
+
+    //Optional<List<Producto>> findByCantidadStockLessThanAndIdCategoriaOrderByStockDesc(Integer stock, Long idCantidad);
 }

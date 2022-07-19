@@ -11,4 +11,6 @@ public interface CategoriaCrudRepository extends CrudRepository<Categoria, Long>
     Optional<List<Categoria>> findByEstado(Boolean estado);
 
     Optional<List<Categoria>> findByEstadoAndIdCategoria(Boolean estado, Long idCategoria);
+
+    Optional<List<Categoria>> findByDescripcion(String descripcion);
 }

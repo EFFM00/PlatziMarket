@@ -78,4 +78,12 @@ public class Cliente {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public Set<Compra> getCompras() {
+        return compras;
+    }
+
+    public void setCompras(Set<Compra> compras) {
+        this.compras = compras;
+    }
 }

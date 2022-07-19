@@ -96,4 +96,12 @@ public class Compra {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    public Set<ComprasProducto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(Set<ComprasProducto> productos) {
+        this.productos = productos;
+    }
 }

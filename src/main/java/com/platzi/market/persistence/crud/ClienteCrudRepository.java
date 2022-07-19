@@ -12,9 +12,9 @@ public interface ClienteCrudRepository extends CrudRepository<Cliente, String> {
 
     Optional<List<Cliente>> findByNombre(String nombre);
 
-    Optional<List<Cliente>> findByApellido(String apellido);
+    Optional<List<Cliente>> findByApellidos(String apellidos);
 
-    Optional<List<Cliente>> findByNombreAndApellido(String nombre, String apellido);
+    Optional<List<Cliente>> findByNombreAndApellidos(String nombre, String apellidos);
 
     Optional<List<Cliente>> findByCelular(Integer celular);
 

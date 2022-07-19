@@ -2,10 +2,12 @@ package com.platzi.market.persistence;
 
 import com.platzi.market.persistence.crud.ClienteCrudRepository;
 import com.platzi.market.persistence.entity.Cliente;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class ClienteRepository {
 
     private ClienteCrudRepository clienteCrudRepository;
@@ -31,7 +33,7 @@ public class ClienteRepository {
     }
 
     public Optional<List<Cliente>> findByApellido(String apellido){
-        return clienteCrudRepository.findByApellido(apellido);
+        return clienteCrudRepository.findByApellidos(apellido);
     }
 
     public Optional<List<Cliente>> findByCelular(Integer celular){
@@ -47,7 +49,7 @@ public class ClienteRepository {
     }
 
     public Optional<List<Cliente>> findByNombreAndApellido(String nombre, String apellido){
-        return clienteCrudRepository.findByNombreAndApellido(nombre, apellido);
+        return clienteCrudRepository.findByNombreAndApellidos(nombre, apellido);
     }
 
 }

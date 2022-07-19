@@ -2,10 +2,12 @@ package com.platzi.market.persistence;
 
 import com.platzi.market.persistence.crud.CategoriaCrudRepository;
 import com.platzi.market.persistence.entity.Categoria;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class CategoriaRepository {
 
     private CategoriaCrudRepository categoriaCrudRepository;
@@ -32,5 +34,9 @@ public class CategoriaRepository {
 
     public Optional<List<Categoria>> findByEstadoAndIdCategoria(Boolean estado, Long idCategoria){
         return categoriaCrudRepository.findByEstadoAndIdCategoria(estado, idCategoria);
+    }
+
+    public Optional<List<Categoria>> findByDescripcion(String descripcion){
+        return categoriaCrudRepository.findByDescripcion(descripcion);
     }
 }

@@ -4,10 +4,12 @@ package com.platzi.market.persistence;
 import com.platzi.market.persistence.crud.ComprasProductoCrudRepository;
 import com.platzi.market.persistence.entity.ComprasProducto;
 import com.platzi.market.persistence.entity.ComprasProductoPK;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Repository
 public class ComprasProductoRepository {
 
     private ComprasProductoCrudRepository comprasProductoCrudRepository;
