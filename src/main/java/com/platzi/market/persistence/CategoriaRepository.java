@@ -1,42 +1,60 @@
 package com.platzi.market.persistence;
 
+import com.platzi.market.domain.CategoryDto;
+import com.platzi.market.domain.repository.CategoryDtoRepository;
 import com.platzi.market.persistence.crud.CategoriaCrudRepository;
 import com.platzi.market.persistence.entity.Categoria;
+import com.platzi.market.persistence.mapper.CategoryMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class CategoriaRepository {
+public class CategoriaRepository implements CategoryDtoRepository {
 
+    @Autowired
+    private CategoryMapper mapper;
+    @Autowired
     private CategoriaCrudRepository categoriaCrudRepository;
 
-    public List<Categoria> findAll(){
-        return (List<Categoria>) categoriaCrudRepository.findAll();
+    @Override
+    public List<CategoryDto> findAll(){
+        List<Categoria> categorias = (List<Categoria>) categoriaCrudRepository.findAll();
+        return mapper.toListCategory(categorias);
     }
 
     public void deleteById(Long id){
         categoriaCrudRepository.deleteById(id);
     }
 
-    public Categoria save(Categoria categoria){
-        return categoriaCrudRepository.save(categoria);
+    @Override
+    public CategoryDto save(CategoryDto categoryDto) {
+        return null;
     }
 
-    public Optional<Categoria> findById(Long id){
-        return categoriaCrudRepository.findById(id);
+    @Override
+    public List<CategoryDto> findByState(Boolean estado) {
+        List<Categoria> categorias = categoriaCrudRepository.findByEstado(estado);
+        return mapper.toListCategory(categorias);
     }
 
-    public Optional<List<Categoria>> findByEstado(Boolean estado){
-        return categoriaCrudRepository.findByEstado(estado);
+    @Override
+    public List<CategoryDto> findByCategory(String category) {
+        return null;
+    }
+
+    @Override
+    public Optional<CategoryDto> findById(Long id){
+        return categoriaCrudRepository.findById(id).map(categoria -> mapper.toCategoryDto(categoria));
     }
 
     public Optional<List<Categoria>> findByEstadoAndIdCategoria(Boolean estado, Long idCategoria){
         return categoriaCrudRepository.findByEstadoAndIdCategoria(estado, idCategoria);
     }
 
-    public Optional<List<Categoria>> findByDescripcion(String descripcion){
+    public List<Categoria> findByDescripcion(String descripcion){
         return categoriaCrudRepository.findByDescripcion(descripcion);
     }
 }

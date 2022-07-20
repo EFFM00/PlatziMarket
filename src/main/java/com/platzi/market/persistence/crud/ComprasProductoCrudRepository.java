@@ -14,5 +14,5 @@ public interface ComprasProductoCrudRepository extends CrudRepository<ComprasPro
 
     Optional<List<ComprasProducto>> findByEstado(Boolean estado);
 
-    Optional<List<ComprasProducto>> findByCantidad(Integer cantidad);
+    List<ComprasProducto> findByCantidad(Integer cantidad);
 }

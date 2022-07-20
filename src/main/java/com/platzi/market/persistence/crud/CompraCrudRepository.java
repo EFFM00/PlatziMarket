@@ -9,11 +9,11 @@ import java.util.Optional;
 
 public interface CompraCrudRepository extends CrudRepository<Compra, Long> {
 
-    Optional<List<Compra>> findByIdCliente(String idCliente);
+    Optional<Compra> findByIdCliente(String idCliente);
 
-    Optional<List<Compra>> findByFecha(LocalDateTime fecha);
+    List<Compra> findByFecha(LocalDateTime fecha);
 
-    Optional<List<Compra>> findByMedioPago(String medioPago);
+    List<Compra> findByMedioPago(String medioPago);
 
     Optional<List<Compra>> findByEstado(String estado);
 

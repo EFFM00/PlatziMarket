@@ -14,7 +14,7 @@ public interface ClienteCrudRepository extends CrudRepository<Cliente, String> {
 
     Optional<List<Cliente>> findByApellidos(String apellidos);
 
-    Optional<List<Cliente>> findByNombreAndApellidos(String nombre, String apellidos);
+    List<Cliente> findByNombreAndApellidos(String nombre, String apellidos);
 
     Optional<List<Cliente>> findByCelular(Integer celular);
 

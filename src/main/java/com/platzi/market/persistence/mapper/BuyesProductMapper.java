@@ -1,14 +1,17 @@
 package com.platzi.market.persistence.mapper;
 
 import com.platzi.market.domain.BuyesProductDto;
+import com.platzi.market.persistence.entity.Compra;
 import com.platzi.market.persistence.entity.ComprasProducto;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring", uses = {
-        BuyesProductMapper.class,
+        ProductMapper.class,
         BuyMapper.class
 })
 public interface BuyesProductMapper {
@@ -22,6 +25,7 @@ public interface BuyesProductMapper {
             @Mapping(source = "compra", target = "buy"),
     })
     BuyesProductDto toBuyesProductDto(ComprasProducto comprasProducto);
+    List<BuyesProductDto> toBuyesList(List<ComprasProducto> comprasProductos);
 
     @InheritInverseConfiguration
     ComprasProducto toComprasProucto(BuyesProductDto buyesProductDto);

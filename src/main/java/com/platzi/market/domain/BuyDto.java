@@ -1,8 +1,12 @@
 package com.platzi.market.domain;
 
+import com.platzi.market.persistence.entity.Cliente;
+import com.platzi.market.persistence.entity.ComprasProducto;
 import com.platzi.market.persistence.entity.Producto;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 public class BuyDto {
 
@@ -11,7 +15,8 @@ public class BuyDto {
     private LocalDateTime date;
     private String active;
     private String paymentMethod;
-    private Producto products;
+
+    private Cliente client;
 
     public Long getBuyId() {
         return buyId;
@@ -53,13 +58,11 @@ public class BuyDto {
         this.buyId = buyId;
     }
 
-    public Producto getProducts() {
-        return products;
+    public Cliente getClient() {
+        return client;
     }
 
-    public void setProducts(Producto products) {
-        this.products = products;
+    public void setClient(Cliente client) {
+        this.client = client;
     }
-
-
 }

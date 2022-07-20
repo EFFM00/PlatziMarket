@@ -9,6 +9,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface ClientMapper {
 
@@ -19,6 +21,7 @@ public interface ClientMapper {
             @Mapping(source = "email", target = "email")
     })
     ClientDto toClientDto(Cliente cliente);
+    List<ClientDto> toListClientDto(List<Cliente> clientes);
 
     @InheritInverseConfiguration
     @Mappings({
